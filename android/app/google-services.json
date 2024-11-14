@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "456980033495",
+    "project_id": "nose-a8241",
+    "storage_bucket": "nose-a8241.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:456980033495:android:4356049ab199e88ef0e592",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAC2cXI6TXwcwIlKTrMbVw8S-bPyvZ_nTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
