@@ -1,10 +1,9 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FireStoreService {
   static final FireStoreService _instance = FireStoreService._internal();
 
-  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  static final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   factory FireStoreService() {
     return _instance;
@@ -18,5 +17,14 @@ class FireStoreService {
 
   Future<void> insertData(String collection, Map<String, dynamic> data) {
     return _firestore.collection(collection).add(data);
+  }
+
+  Future<void> updateData(
+      String collection, String docId, Map<String, dynamic> data) {
+    return _firestore.collection(collection).doc(docId).update(data);
+  }
+
+  Future<void> deleteData(String collection, String docId) {
+    return _firestore.collection(collection).doc(docId).delete();
   }
 }
