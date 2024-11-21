@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:nose/team.dart';
 
 class FireStoreService {
   static final FireStoreService _instance = FireStoreService._internal();
@@ -11,8 +12,12 @@ class FireStoreService {
 
   FireStoreService._internal();
 
-  Stream<QuerySnapshot> getData(String collection) {
-    return _firestore.collection(collection).snapshots();
+  Stream<List<Team>> getData(String collection) {
+    return _firestore.collection(collection).snapshots().map((snapshot) {
+      return snapshot.docs
+          .map((doc) => Team.fromDocumentSnapshot(doc))
+          .toList();
+    });
   }
 
   Future<void> insertData(String collection, Map<String, dynamic> data) {
