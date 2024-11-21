@@ -26,8 +26,8 @@ class Team {
     return Team(
       id: doc.id,
       nombre: doc['nombre'],
-      apellidoP: doc['division'],
-      apellidoM: doc['conferencia'],
+      apellidoP: doc['apellidoP'],
+      apellidoM: doc['apellidoM'],
     );
   }
 }
