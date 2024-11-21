@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nose/fire_store_service.dart';
+import 'package:nose/team.dart';
 
 class TeamsScreen extends StatefulWidget {
   const TeamsScreen({super.key});
@@ -44,6 +45,18 @@ class _TeamsScreenState extends State<TeamsScreen> {
               onPressed: () => {},
               child: const Text('Guardar Person'),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            Expanded(
+                child: StreamBuilder(
+              stream: _fireStoreService.getData('1'),
+              builder: (context, AsyncSnapshot<List<Team>> snapshot) {
+                if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                }
+              },
+            )),
           ],
         ));
   }
